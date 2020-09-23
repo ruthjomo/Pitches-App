@@ -4,7 +4,7 @@ import unittest
 
 class TestComment(unittest.TestCase):
     def setUp(self):
-        self.pitch=Pitch(pitch='we only live once', pitch_category='sales pitch')
+        self.pitch=Pitch(pitch='laugh now,cry later', pitch_category='sales pitch')
         self.comment=Comment(comment='i like it',pitch=self.pitch)
 
     def tearDown(self):
