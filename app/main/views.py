@@ -1,3 +1,4 @@
+import os
 from flask import render_template, redirect, url_for, abort, request
 from . import main
 from flask_login import login_required, current_user
@@ -5,6 +6,22 @@ from ..models import User, Comment, Pitch
 from .forms import UpdateProfile, CommentForm, PitchForm
 from .. import db, photos
 
+vote=0
+def Upvote(pitch):
+    if pitch:
+        vote=0
+        vote=pitch+1
+
+    return vote
+
+
+
+def Downvote(pitch):
+    if pitch:
+        vote=0
+        vote=pitch+1
+
+    return vote
 
 @main.route('/')
 def index():
