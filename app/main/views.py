@@ -5,6 +5,8 @@ from flask_login import login_required, current_user
 from ..models import User, Comment, Pitch
 from .forms import UpdateProfile, CommentForm, PitchForm
 from .. import db, photos
+from flask import current_app
+
 
 vote=0
 def Upvote(pitch):
@@ -28,7 +30,12 @@ def index():
     '''
     View root page function that returns the index page and its data
     '''
-    return render_template('index.html')
+    title = 'Pitches'
+    page=request.args.get('page',1,type=int)
+    all_pitch=Pitch.query.order_by(Pitch.posted.desc()).paginate(page=page,per_page=10)
+  
+    return render_template('index.html',pitches=all_pitch, title = title)
+    
 
 
 @main.route('/product')
@@ -165,3 +172,4 @@ def update_pic(uname):
         user.profile_pic_path = path
         db.session.commit()
     return redirect(url_for('main.profile', uname=uname))
+    

@@ -9,7 +9,7 @@ from flask_migrate import Migrate,MigrateCommand
 # app = create_app('production')
 
 app = create_app('production')
-# app = create_app('test')
+app = create_app('test')
 
 migrate = Migrate(app,db)
 manager = Manager(app)
@@ -27,7 +27,7 @@ def test():
 
 @manager.shell
 def make_shell_context():
-    return dict(app = app,db = db,User = User, Role = Role )
+     return dict(app = app,db = db,User = User, Role = Role )
 
 
 if __name__ == '__main__':
