@@ -1,40 +1,35 @@
-import os
 from flask import render_template, redirect, url_for, abort, request
 from . import main
 from flask_login import login_required, current_user
 from ..models import User, Comment, Pitch
 from .forms import UpdateProfile, CommentForm, PitchForm
 from .. import db, photos
-from flask import current_app
-
-
-vote=0
-def Upvote(pitch):
-    if pitch:
-        vote=0
-        vote=pitch+1
-
-    return vote
 
 
 
-def Downvote(pitch):
-    if pitch:
-        vote=0
-        vote=pitch+1
+# vote=0
+# def Upvote(pitch):
+#     if pitch:
+#         vote=0
+#         vote=pitch+1
 
-    return vote
+#     return vote
+
+
+
+# def Downvote(pitch):
+#     if pitch:
+#         vote=0
+#         vote=pitch+1
+
+#     return vote
 
 @main.route('/')
 def index():
     '''
     View root page function that returns the index page and its data
     '''
-    title = 'Pitches'
-    page=request.args.get('page',1,type=int)
-    all_pitch=Pitch.query.order_by(Pitch.posted.desc()).paginate(page=page,per_page=10)
-  
-    return render_template('index.html',pitches=all_pitch, title = title)
+    return render_template('index.html')
     
 
 
