@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+body{
+    font-family: 'Acme', sans-serif;
+    background-image: url(../photos/blue_abstract_background_310971.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-weight: 400;
+    color: #fff;
+    font-size: 18px;
+}
+
+
+.col-md-8{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}

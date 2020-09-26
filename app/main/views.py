@@ -7,22 +7,22 @@ from .. import db, photos
 
 
 
-# vote=0
-# def Upvote(pitch):
-#     if pitch:
-#         vote=0
-#         vote=pitch+1
+vote=0
+def Upvote(pitch):
+    if pitch:
+        vote=0
+        vote=pitch+1
 
-#     return vote
+    return vote
 
 
 
-# def Downvote(pitch):
-#     if pitch:
-#         vote=0
-#         vote=pitch+1
+def Downvote(pitch):
+    if pitch:
+        vote=0
+        vote=pitch+1
 
-#     return vote
+    return vote
 
 @main.route('/')
 def index():
@@ -167,4 +167,32 @@ def update_pic(uname):
         user.profile_pic_path = path
         db.session.commit()
     return redirect(url_for('main.profile', uname=uname))
+
+@main.route('/<int:pname>/comment',methods=['GET','POST'])
+@login_required
+def comment(pname):
+    comments=CommentsForm()
+    image=url_for('static',filename='profile/'+ current_user.profile_pic_path)
+    pitch=Pitch.query.filter_by(id=pname).first()
+    comment_query=Comment.query.filter_by(pitch_id=pitch.id).all()
     
+    if request.args.get('likes'):
+        pitch.upvotes=pitch.upvotes+int(1)
+        db.session.add(pitch)
+        db.session.commit()
+        return redirect(url_for('main.comment',pname=pname))
+
+    
+    elif    request.args.get('dislike'):
+        pitch.downvotes=pitch.downvotes+int(1)
+        db.session.add(pitch)
+        db.session.commit()
+        return redirect(url_for('main.comment',pname=pname))
+
+    if comments.validate_on_submit():
+        comment=Comment(comment=comments.comment.data,pitch_id=pitch.id,user_id=current_user.id)
+        db.session.add(comment)
+        db.session.commit()
+        return redirect(url_for('main.comment',pname=pname))
+    
+    return render_template('pitch.html' ,comment=comments,pitch=pitch,comments=comment_query,title='Pitch Comment',image=image)   
