@@ -6,7 +6,8 @@ An application allows users to submit their one minute pitches and other users w
 ## Requirements
 This program requires python3.+ (and pip) installed.
 Once python is installed, install the folowing external libraries provided in the requirements.txt file using pip.
-Known Bugs
+
+## Known Bugs
 No known bugs
 
 ## Technologies Used
