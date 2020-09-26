@@ -1,15 +1,15 @@
-Pitches-App
-Ruth Jomo
-Description
+## Pitches-App
+## Ruth Jomo
+## Description
 An application allows users to submit their one minute pitches and other users will vote on them and leave comments to give their feedback on them.
 
-Requirements
+## Requirements
 This program requires python3.+ (and pip) installed.
 Once python is installed, install the folowing external libraries provided in the requirements.txt file using pip.
 Known Bugs
 No known bugs
 
-Technologies Used
+## Technologies Used
 python 3.8
 Flask microframework
 HTML
@@ -18,13 +18,13 @@ Bootstrap
 Support and contact details
 You can provide feedback or raise any issues/ bugs through the following means: Email: ruthjomo19@gmail.com
 
-Live Site link
+## Live Site link
 You can view the live application by following this
 
-License
+## License
 MIT License
 
-Copyright (c) 2020 Ruth Jomo
+### Copyright (c) 2020 Ruth Jomo
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
