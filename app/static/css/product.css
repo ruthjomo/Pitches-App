@@ -2,6 +2,7 @@
 body{
     color:  black;
     background-image: url(../photos/blue_abstract_background_310971.jpg);
+    background-size:cover;
     font-family: 'Acme', sans-serif;
     font-size: 18px;
 }
