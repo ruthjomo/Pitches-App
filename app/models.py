@@ -71,7 +71,8 @@ class Pitch(db.Model):
         db.session.commit()
 
     @classmethod
-    def get_pitches(cls, id):
+    def get_pitches(cls, id
+    ):
         pitches = Pitch.query.order_by(Pitch.posted.desc())
         return pitches
 
